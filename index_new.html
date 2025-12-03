@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chaitanya Boggavarapu | Senior Data Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Portfolio of Chaitanya Boggavarapu - Senior Data Engineer & Senior Python Developer specializing in data engineering, AWS, Snowflake, and Python."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #020617;
+      --card: #020617;
+      --accent: #38bdf8;
+      --accent-2: #22c55e;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+      --transition: 0.2s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 50%, #020617 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 18px 40px;
+    }
+
+    @media (min-width: 900px) {
+      main {
+        padding: 24px 12px 56px;
+      }
+    }
+
+    /* Header / Nav */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(
+        to bottom,
+        rgba(2, 6, 23, 0.96),
+        rgba(2, 6, 23, 0.9),
+        transparent
+      );
+      border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 10px 18px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      border: 1px solid rgba(56, 189, 248, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #0ea5e9 0, #0369a1 40%, #020617 100%);
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 1), 0 12px 28px rgba(15, 23, 42, 1);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-title-main {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-title-sub {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 14px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: background var(--transition), color var(--transition),
+        transform var(--transition);
+    }
+
+    .nav-links a:hover {
+      background: rgba(30, 64, 175, 0.5);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .nav-links .nav-cta {
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      color: #020617;
+      font-weight: 600;
+      box-shadow: 0 14px 32px rgba(56, 189, 248, 0.35);
+    }
+
+    .nav-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid #1f2937;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 85%);
+      cursor: pointer;
+    }
+
+    .nav-toggle span,
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      display: block;
+      width: 16px;
+      height: 2px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      position: relative;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    .nav-toggle span::before {
+      top: -5px;
+    }
+
+    .nav-toggle span::after {
+      top: 5px;
+    }
+
+    .nav-menu-mobile {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      padding: 6px 18px 10px;
+      font-size: 14px;
+      background: rgba(2, 6, 23, 0.98);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.95);
+    }
+
+    .nav-menu-mobile a {
+      padding: 6px 4px;
+      color: var(--muted);
+    }
+
+    .nav-menu-mobile a.nav-cta {
+      margin-top: 4px;
+      padding: 7px 0;
+      text-align: center;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      color: #020617;
+      font-weight: 600;
+    }
+
+    .nav-open .nav-toggle span {
+      transform: rotate(45deg);
+    }
+
+    .nav-open .nav-toggle span::before {
+      transform: rotate(90deg);
+      top: 0;
+    }
+
+    .nav-open .nav-toggle span::after {
+      opacity: 0;
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+      .nav-toggle,
+      .nav-menu-mobile {
+        display: none !important;
+      }
+    }
+
+    /* Hero */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr);
+      gap: 24px;
+      padding: 26px 0 30px;
+    }
+
+    @media (min-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
+        align-items: center;
+        padding: 40px 0 36px;
+      }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      background: radial-gradient(circle at top left, #0b1120 0, #020617 75%);
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+    }
+
+    .hero-title {
+      font-size: 30px;
+      line-height: 1.15;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 38px;
+      }
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #38bdf8, #22c55e);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 18px;
+    }
+
+    .hero-subtitle strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .badge {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--muted);
+    }
+
+    .badge-accent {
+      border-color: rgba(56, 189, 248, 0.7);
+      background: rgba(15, 118, 110, 0.4);
+      color: #e0f2fe;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition),
+        background var(--transition), border-color var(--transition);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      color: #020617;
+      box-shadow: 0 18px 38px rgba(56, 189, 248, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 45px rgba(56, 189, 248, 0.5);
+    }
+
+    .btn-ghost {
+      border-color: #1f2937;
+      background: radial-gradient(circle at top left, #020617 0, #020617 65%, #020617 100%);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: #4b5563;
+      color: var(--text);
+    }
+
+    .hero-meta {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-meta a {
+      color: #38bdf8;
+    }
+
+    .hero-side {
+      display: none;
+    }
+
+    @media (min-width: 900px) {
+      .hero-side {
+        display: block;
+      }
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #1e293b 0, #020617 55%);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(15, 23, 42, 1);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.16), transparent 55%);
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+      font-size: 12px;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+
+    .hero-card-title {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-card-pill {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      color: #e0f2fe;
+    }
+
+    .hero-card-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .metric {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 14px;
+      padding: 8px 9px;
+      border: 1px solid rgba(31, 41, 55, 0.95);
+    }
+
+    .metric-label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    .metric-value {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .hero-card-tag {
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    /* Sections */
+
+    section {
+      margin-top: 34px;
+    }
+
+    .section-header {
+      margin-bottom: 14px;
+    }
+
+    .section-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .section-description {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+      max-width: 640px;
+    }
+
+    /* About */
+
+    .about-card {
+      border-radius: var(--radius-lg);
+      background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.98),
+        rgba(15, 23, 42, 0.96)
+      );
+      border: 1px solid rgba(30, 64, 175, 0.7);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .about-card p + p {
+      margin-top: 8px;
+    }
+
+    .about-highlight {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* Skills */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    @media (min-width: 900px) {
+      .skills-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .skill-card {
+      background: radial-gradient(circle at top left, #020617 0, #020617 60%, #020617 100%);
+      border-radius: 14px;
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      padding: 10px 11px;
+    }
+
+    .skill-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .skill-list li {
+      padding: 4px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      font-size: 11px;
+      color: var(--text);
+    }
+
+    /* Experience */
+
+    .timeline {
+      border-left: 1px solid rgba(55, 65, 81, 0.9);
+      margin-top: 10px;
+      padding-left: 14px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 14px;
+      margin-bottom: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -7px;
+      top: 4px;
+      width: 11px;
+      height: 11px;
+      border-radius: 999px;
+      border: 2px solid #020617;
+      background: radial-gradient(circle at center, #38bdf8 0, #1d4ed8 58%);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.45);
+    }
+
+    .timeline-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 4px;
+      align-items: baseline;
+      margin-bottom: 3px;
+    }
+
+    .timeline-role {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .timeline-company {
+      font-size: 13px;
+    }
+
+    .timeline-date {
+      font-size: 11px;
+    }
+
+    .timeline-body ul {
+      margin-top: 4px;
+      padding-left: 14px;
+    }
+
+    .timeline-body li {
+      margin-bottom: 2px;
+    }
+
+    /* Projects */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    @media (min-width: 900px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .project-card {
+      border-radius: 16px;
+      background: radial-gradient(circle at top left, #020617 0, #020617 60%, #020617 100%);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      padding: 11px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .project-title-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      align-items: center;
+      margin-bottom: 2px;
+    }
+
+    .project-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .project-tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #e0f2fe;
+    }
+
+    .project-meta {
+      font-size: 11px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .project-pill {
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    /* Education */
+
+    .edu-card {
+      border-radius: 14px;
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      background: radial-gradient(circle at top left, #020617 0, #020617 65%, #020617 100%);
+      padding: 10px 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .edu-degree {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    /* Contact */
+
+    .contact-card {
+      border-radius: 16px;
+      padding: 14px;
+      background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.98),
+        rgba(15, 23, 42, 0.96)
+      );
+      border: 1px solid rgba(30, 64, 175, 0.6);
+      box-shadow: var(--shadow);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr);
+      gap: 10px;
+    }
+
+    @media (min-width: 800px) {
+      .contact-grid {
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      }
+    }
+
+    .contact-meta {
+      display: grid;
+      gap: 4px;
+      font-size: 13px;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+    }
+
+    .contact-value a {
+      color: #38bdf8;
+    }
+
+    footer {
+      margin-top: 26px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(15, 23, 42, 0.95);
+      font-size: 11px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: #38bdf8;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="nav-left">
+        <div class="nav-logo">CB</div>
+        <div>
+          <div class="nav-title-main">Chaitanya Boggavarapu</div>
+          <div class="nav-title-sub">Senior Data Engineer</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+      </button>
+    </div>
+    <div class="nav-menu-mobile" id="nav-menu">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div>
+        <div class="pill">
+          <span class="pill-dot"></span>
+          Open to Senior Data Engineer / Senior Python Developer roles
+        </div>
+        <h1 class="hero-title">
+          Hi, I’m <span>Chaitanya</span>. I build scalable
+          <span>data platforms</span> in the cloud.
+        </h1>
+        <p class="hero-subtitle">
+          I am a <strong>Senior Data Engineer</strong> and
+          <strong>Senior Python Developer</strong> with
+          <strong>11+ years of experience</strong> designing and implementing
+          data pipelines, APIs, and cloud-native solutions using
+          <strong>Python, SQL, PySpark, Snowflake, AWS, and Terraform</strong>.
+          I’ve worked extensively in financial services, risk, and analytics.
+        </p>
+
+        <div class="hero-badges">
+          <span class="badge badge-accent">Data Engineering · AWS · Snowflake</span>
+          <span class="badge">Python APIs (Flask, Django, FastAPI)</span>
+          <span class="badge">ETL / ELT · Glue · Databricks · DBT</span>
+        </div>
+
+        <div class="hero-actions">
+          <a
+            class="btn btn-primary"
+            href="mailto:chaitanyaboggavarapu@hotmail.com?subject=Senior%20Data%20Engineer%20-%20Portfolio"
+          >
+            Contact Me
+          </a>
+          <a
+            class="btn btn-ghost"
+            href="https://github.com/ChaitanyaBoggavarapu"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View My GitHub
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <div><strong>Based in:</strong> Albuquerque, NM (Open to Relocation / Remote)</div>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <div class="hero-card-header">
+              <div>
+                <div class="hero-card-title">Career Snapshot</div>
+                <div style="font-size:11px;color:#9ca3af;">
+                  Financial Services · Risk · Analytics
+                </div>
+              </div>
+              <div class="hero-card-pill">11+ yrs experience</div>
+            </div>
+            <div class="hero-card-metrics">
+              <div class="metric">
+                <div class="metric-label">Core</div>
+                <div class="metric-value">Data Pipelines</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Cloud</div>
+                <div class="metric-value">AWS & Snowflake</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Languages</div>
+                <div class="metric-value">Python · SQL</div>
+              </div>
+            </div>
+            <div class="hero-card-tags">
+              <span class="hero-card-tag">AWS Glue · Lambda · Step Functions</span>
+              <span class="hero-card-tag">Snowflake · DBT</span>
+              <span class="hero-card-tag">PySpark · Databricks</span>
+              <span class="hero-card-tag">Terraform · CI/CD</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="section-header">
+        <div class="section-tag">About</div>
+        <h2 class="section-title">Who I am</h2>
+        <p class="section-description">
+          From ETL work at Wipro to financial data platforms at LPL Financial, I’ve spent my career solving data problems at scale.
+        </p>
+      </div>
+      <div class="about-card">
+        <p>
+          I am a <span class="about-highlight">Data Engineer and Senior Python Developer</span>
+          with a strong focus on <span class="about-highlight">data pipelines, APIs,
+          cloud infrastructure, and analytics</span>. I enjoy taking business requirements and
+          turning them into robust, production-ready systems.
+        </p>
+        <p>
+          My experience spans <span class="about-highlight">financial services, risk
+          platforms, and analytics</span>, working with <span class="about-highlight">
+          AWS, Snowflake, Databricks, PySpark, Glue, and Terraform</span>. I’ve designed and
+          maintained data workflows that power reporting, analytics, and downstream applications.
+        </p>
+        <p>
+          I care about <span class="about-highlight">code quality, observability, and
+          collaboration</span>: writing tests with Pytest, documenting systems clearly, and
+          partnering with stakeholders to ensure the data is accurate, governed, and reliable.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="section-header">
+        <div class="section-tag">Skills</div>
+        <h2 class="section-title">Tech stack</h2>
+        <p class="section-description">
+          My core strengths are Python, SQL, and modern cloud data platforms.
+        </p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-title">Languages & Frameworks</div>
+          <ul class="skill-list">
+            <li>Python</li>
+            <li>SQL</li>
+            <li>PySpark</li>
+            <li>C#</li>
+            <li>JavaScript</li>
+            <li>MATLAB</li>
+            <li>Flask</li>
+            <li>Django</li>
+            <li>FastAPI</li>
+            <li>React (basic)</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-title">Data & Cloud</div>
+          <ul class="skill-list">
+            <li>Snowflake</li>
+            <li>AWS (Glue, S3, RDS, Lambda, EC2, VPC, IAM)</li>
+            <li>Databricks</li>
+            <li>Postgres</li>
+            <li>MS SQL Server</li>
+            <li>Oracle</li>
+            <li>DynamoDB</li>
+            <li>DBT</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-title">DevOps & Tools</div>
+          <ul class="skill-list">
+            <li>Terraform</li>
+            <li>Concourse</li>
+            <li>Docker</li>
+            <li>Kubernetes</li>
+            <li>ECS · ECR · EKS</li>
+            <li>GitHub · Bitbucket · SVN</li>
+            <li>CloudWatch</li>
+            <li>PyTest · Playwright</li>
+            <li>Heroku</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <div class="section-header">
+        <div class="section-tag">Experience</div>
+        <h2 class="section-title">Professional journey</h2>
+      </div>
+
+      <div class="timeline">
+        <!-- LPL -->
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Senior Data Engineer</div>
+              <div class="timeline-company">LPL Financial</div>
+            </div>
+            <div class="timeline-date">Aug 2024 – Present</div>
+          </div>
+          <div class="timeline-body">
+            <ul>
+              <li>Delivered financial data solutions for positions, transactions, and account balances (MILO PRU, Atria).</li>
+              <li>Built scalable pipelines using Databricks, AWS Glue, EventBridge, Lambda, and Step Functions.</li>
+              <li>Designed logic to compute daily account balances and stored curated data in AWS RDS.</li>
+              <li>Provisioned and managed AWS services with Terraform modules for consistent environments.</li>
+              <li>Performed transformations on S3 data while ingesting into Snowflake; executed DDL and reconciliation queries.</li>
+              <li>Implemented CI/CD with Concourse and containerized services with Docker.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Mastercard -->
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Data Engineer / Senior Python Developer</div>
+              <div class="timeline-company">Mastercard – RiskRecon</div>
+            </div>
+            <div class="timeline-date">Aug 2022 – Jul 2024</div>
+          </div>
+          <div class="timeline-body">
+            <ul>
+              <li>Supported EU deployment of the RiskRecon risk assessment platform, aligning with EU regulations.</li>
+              <li>Developed Python Flask APIs integrating backend systems (Postgres, Elixir) with external services.</li>
+              <li>Provisioned AWS infrastructure (EC2, VPC, RDS, KMS, Redis, ECS/EKS, CloudWatch) using Terraform.</li>
+              <li>Implemented ETL pipelines in Databricks using PySpark and HiveQL.</li>
+              <li>Migrated data from DynamoDB to PostgreSQL (RDS) and built Glue + Snowflake + DBT workflows with tests.</li>
+              <li>Used PyTest, Playwright, and moto to test and mock AWS services.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Freddie Mac -->
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Data Engineer</div>
+              <div class="timeline-company">Freddie Mac</div>
+            </div>
+            <div class="timeline-date">Dec 2021 – Jun 2022</div>
+          </div>
+          <div class="timeline-body">
+            <ul>
+              <li>Built pipelines to integrate and analyze loan-level data from multiple sources.</li>
+              <li>Ensured data security and compliance while working with PII and sensitive information.</li>
+              <li>Developed configuration-driven ingestion pipelines (YAML) using Python and PySpark.</li>
+              <li>Loaded and reconciled data in Snowflake and S3, monitored via CloudWatch and Systems Manager.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Ivalua -->
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Application Engineer</div>
+              <div class="timeline-company">Ivalua</div>
+            </div>
+            <div class="timeline-date">Aug 2020 – Dec 2021</div>
+          </div>
+          <div class="timeline-body">
+            <ul>
+              <li>Worked on a Quote Management and Invoice Generation System for government clients.</li>
+              <li>Designed core components like the Data Access Layer (DAL) and error logging using C# and SQL Server.</li>
+              <li>Performed DDL/DML operations via ADO.NET and Entity Framework and optimized slow queries.</li>
+              <li>Built and deployed REST APIs on Heroku and maintained source in SVN.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Mind Research Network -->
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Data Scientist</div>
+              <div class="timeline-company">Mind Research Network</div>
+            </div>
+            <div class="timeline-date">May 2018 – Jul 2020</div>
+          </div>
+          <div class="timeline-body">
+            <ul>
+              <li>Developed ML models to classify controls vs. schizophrenia patients using scikit-learn.</li>
+              <li>Built CNN models for audio source separation; retrained state-of-the-art models with TensorFlow.</li>
+              <li>Created a PyQt5 desktop app to compare multi-fusion models and worked with audio/video via moviepy.</li>
+              <li>Built a Flask + SQLite app on Heroku to track student locations during COVID.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Wipro -->
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Data Engineer</div>
+              <div class="timeline-company">Wipro</div>
+            </div>
+            <div class="timeline-date">May 2014 – Dec 2017</div>
+          </div>
+          <div class="timeline-body">
+            <ul>
+              <li>Built ETL pipelines from SQL, flat files, and Excel into AWS S3 and Snowflake.</li>
+              <li>Designed SQL tables and created RDS instances to serve application data.</li>
+              <li>Developed Tableau dashboards and provided technical leadership on data and environment setup.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="section-header">
+        <div class="section-tag">Projects</div>
+        <h2 class="section-title">Selected work</h2>
+      </div>
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-title-row">
+            <div class="project-title">Financial Data Platform · LPL</div>
+            <div class="project-tag">Data Engineering</div>
+          </div>
+          <p>
+            Pipelines to ingest, transform, and store positions, transactions, and account balances using
+            Databricks, Glue, Lambda, Step Functions, Snowflake, and RDS for analytics-ready financial data.
+          </p>
+          <div class="project-meta">
+            <span class="project-pill">AWS Glue · Lambda · Step Functions</span>
+            <span class="project-pill">Snowflake · RDS</span>
+            <span class="project-pill">Terraform</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title-row">
+            <div class="project-title">RiskRecon EU Deployment · Mastercard</div>
+            <div class="project-tag">Cloud & APIs</div>
+          </div>
+          <p>
+            Terraform-based AWS stack and Flask APIs powering the RiskRecon platform in EU regions with
+            compliant data flows and integration to backend systems.
+          </p>
+          <div class="project-meta">
+            <span class="project-pill">Terraform</span>
+            <span class="project-pill">EC2 · VPC · RDS · KMS</span>
+            <span class="project-pill">Flask APIs</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title-row">
+            <div class="project-title">Loan Data Pipeline · Freddie Mac</div>
+            <div class="project-tag">Data Pipelines</div>
+          </div>
+          <p>
+            Config-driven PySpark pipelines processing loan-level and PII data into Snowflake and S3 with
+            monitoring through CloudWatch and Systems Manager.
+          </p>
+          <div class="project-meta">
+            <span class="project-pill">PySpark</span>
+            <span class="project-pill">AWS S3 · CloudWatch</span>
+            <span class="project-pill">Snowflake</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title-row">
+            <div class="project-title">COVID Student Tracker · MRN</div>
+            <div class="project-tag">Web App</div>
+          </div>
+          <p>
+            Flask + SQLite web app hosted on Heroku to track students staying out of state during COVID,
+            enabling quick checks for staff and admins.
+          </p>
+          <div class="project-meta">
+            <span class="project-pill">Flask</span>
+            <span class="project-pill">SQLite</span>
+            <span class="project-pill">Heroku</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <div class="section-header">
+        <div class="section-tag">Education</div>
+        <h2 class="section-title">Academic background</h2>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">M.S. in Computer Engineering</div>
+        <div>
+          University of New Mexico, Albuquerque · July 2020 · GPA: 3.8
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-header">
+        <div class="section-tag">Contact</div>
+        <h2 class="section-title">Let’s talk</h2>
+        <p class="section-description">
+          I am open to Senior Data Engineer and Senior Python Developer roles in data platforms, financial services, and analytics.
+        </p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-grid">
+          <div>
+            If you’re building or modernizing data platforms and need someone to design reliable,
+            well-tested pipelines and cloud data solutions, I’d be happy to connect.
+          </div>
+          <div class="contact-meta">
+            <div class="contact-row">
+              <span class="contact-label">Phone</span>
+              <span class="contact-value">+1 505-369-9091</span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">Email</span>
+              <span class="contact-value">
+                <a href="mailto:chaitanyaboggavarapu@hotmail.com">
+                  chaitanyaboggavarapu@hotmail.com
+                </a>
+              </span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">GitHub</span>
+              <span class="contact-value">
+                <a href="https://github.com/ChaitanyaBoggavarapu" target="_blank" rel="noopener noreferrer">
+                  github.com/ChaitanyaBoggavarapu
+                </a>
+              </span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value">
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                  <!-- TODO: Replace this with your actual LinkedIn URL -->
+                  Add your LinkedIn profile URL here
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Chaitanya Boggavarapu ·
+      <a href="#top">Back to top</a>
+    </footer>
+  </main>
+
+  <script>
+    // mobile nav
+    const nav = document.querySelector("header");
+    const toggle = document.getElementById("nav-toggle");
+    const menu = document.getElementById("nav-menu");
+    if (toggle && menu) {
+      toggle.addEventListener("click", () => {
+        const open = nav.classList.toggle("nav-open");
+        menu.style.display = open ? "flex" : "none";
+      });
+      menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("nav-open");
+          menu.style.display = "none";
+        });
+      });
+    }
+
+    // dynamic year
+    document.getElementById("year").textContent =
+      new Date().getFullYear().toString();
+  </script>
+</body>
+</html>
